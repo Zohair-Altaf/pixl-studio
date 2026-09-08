@@ -1,11 +1,11 @@
-const { getStore } = require('@netlify/blobs');
+const { getPixlStore } = require('./_store');
 const { isAuthed } = require('./_auth');
 const defaultContent = require('../../data/content.json');
 
 const KEY = 'content.json';
 
 exports.handler = async (event) => {
-  const store = getStore('pixl-content');
+  const store = getPixlStore('pixl-content');
 
   if (event.httpMethod === 'GET') {
     const data = await store.get(KEY, { type: 'json' });

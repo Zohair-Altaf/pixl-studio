@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getPixlStore } = require('./_store');
 const { isAuthed } = require('./_auth');
 const crypto = require('crypto');
 
@@ -41,7 +41,7 @@ exports.handler = async (event) => {
   }
 
   const id = crypto.randomUUID();
-  const store = getStore('pixl-media');
+  const store = getPixlStore('pixl-media');
   await store.set(id, buffer, { metadata: { contentType } });
 
   return {
