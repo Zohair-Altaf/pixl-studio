@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Pixl Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23201509'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial' font-weight='900' fill='%23c1443f' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ===== LOGIN GATE ===== -->
+<div id="login-gate">
+  <div class="login-box">
+    <h1 id="login-title">Admin Login</h1>
+    <p id="login-sub">Enter your admin password to manage the Pixl Studio site.</p>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password-input" placeholder="••••••••">
+    </div>
+    <button class="btn btn-primary" id="login-btn">Unlock</button>
+    <p class="login-error" id="login-error">Incorrect password. Try again.</p>
+    <p class="hint" style="margin-top:16px;">The admin password is set as an environment variable on your Netlify site — it never lives in this page's code.</p>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app">
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand">PIXL <span>ADMIN</span></div>
+      <button class="tab-btn active" data-tab="dashboard">🏠 Dashboard</button>
+      <button class="tab-btn" data-tab="settings">⚙️ Site Settings</button>
+      <button class="tab-btn" data-tab="hero">🖼️ Hero</button>
+      <button class="tab-btn" data-tab="about">📄 About &amp; Process</button>
+      <button class="tab-btn" data-tab="portfolio">💼 Portfolio</button>
+      <button class="tab-btn" data-tab="team">👥 Team</button>
+      <button class="tab-btn" data-tab="clients">🏷️ Client Logos</button>
+      <button class="tab-btn" data-tab="testimonials">💬 Quotes &amp; Testimonials</button>
+      <button class="tab-btn" data-tab="contact">✉️ Contact Page</button>
+      <button class="tab-btn" data-tab="publish">🚀 Publish</button>
+      <div class="sidebar-footer">
+        <a href="../index.html" target="_blank">↗ View live site</a>
+        <button id="lock-btn">🔒 Lock admin</button>
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <!-- DASHBOARD -->
+      <section class="tab-panel" id="tab-dashboard">
+        <div class="main-header"><div><h2>Dashboard</h2><p>Manage every piece of content on your Pixl Studio website from here.</p></div></div>
+        <div class="panel">
+          <h3>How this works</h3>
+          <p style="font-size:14px; line-height:1.7;">
+            Every edit you make here saves straight to your site's live database and shows up for every visitor
+            immediately — no publish step, no re-uploading files. Try opening
+            <a href="../index.html" target="_blank" style="color:var(--primary); font-weight:700;">the site</a> in another tab
+            after you make a change. Use the <b>Publish</b> tab to download a backup of everything at any time.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Quick stats</h3>
+          <div id="dashboard-stats" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;"></div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="tab-panel" id="tab-settings" style="display:none;">
+        <div class="main-header"><div><h2>Site Settings</h2><p>Agency name, brand colors and contact details used across the site.</p></div></div>
+        <div class="panel">
+          <h3>Brand</h3>
+          <div class="field-row">
+            <div class="field"><label>Agency Name</label><input id="s-name"></div>
+            <div class="field"><label>Tagline</label><input id="s-tagline"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Primary Color</label><div class="color-field"><input type="color" id="s-primary"><input id="s-primary-hex"></div></div>
+            <div class="field"><label>Background Color</label><div class="color-field"><input type="color" id="s-bg"><input id="s-bg-hex"></div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Contact Details</h3>
+          <div class="field-row">
+            <div class="field"><label>Email</label><input id="s-email"></div>
+            <div class="field"><label>Phone</label><input id="s-phone"></div>
+          </div>
+          <div class="field"><label>Address</label><input id="s-address"></div>
+        </div>
+        <div class="panel">
+          <h3>Social Links</h3>
+          <div class="field-row">
+            <div class="field"><label>Instagram</label><input id="s-instagram"></div>
+            <div class="field"><label>Twitter / X</label><input id="s-twitter"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>LinkedIn</label><input id="s-linkedin"></div>
+            <div class="field"><label>Behance</label><input id="s-behance"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="save-settings">Save changes</button>
+      </section>
+
+      <!-- HERO -->
+      <section class="tab-panel" id="tab-hero" style="display:none;">
+        <div class="main-header"><div><h2>Hero Section</h2><p>The big headline banner at the top of your homepage.</p></div></div>
+        <div class="panel">
+          <div class="field-row">
+            <div class="field"><label>Headline Line 1</label><input id="h-line1"></div>
+            <div class="field"><label>Headline Line 2</label><input id="h-line2"></div>
+          </div>
+          <div class="field"><label>Banner Text</label><textarea id="h-banner"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Button Text</label><input id="h-cta-text"></div>
+            <div class="field"><label>Button Link</label><input id="h-cta-link"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Rotating Badge Text</label><input id="h-badge-text"></div>
+            <div class="field"><label>Badge Link</label><input id="h-badge-link"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="save-hero">Save changes</button>
+      </section>
+
+      <!-- ABOUT / PROCESS -->
+      <section class="tab-panel" id="tab-about" style="display:none;">
+        <div class="main-header"><div><h2>About &amp; Process</h2><p>The intro paragraph and the four-step process/stats grid.</p></div></div>
+        <div class="panel">
+          <h3>Intro</h3>
+          <div class="field"><label>Eyebrow</label><input id="a-eyebrow"></div>
+          <div class="field"><label>Heading</label><input id="a-heading"></div>
+          <div class="field"><label>Paragraph</label><textarea id="a-text"></textarea></div>
+        </div>
+        <div class="panel">
+          <h3>Process / Stats Grid (4 items)</h3>
+          <div id="process-fields"></div>
+        </div>
+        <div class="panel">
+          <h3>Work Section Heading</h3>
+          <div class="field"><label>Heading shown above the portfolio grid</label><input id="a-work-heading"></div>
+        </div>
+        <button class="btn btn-primary" id="save-about">Save changes</button>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="tab-panel" id="tab-portfolio" style="display:none;">
+        <div class="main-header">
+          <div><h2>Portfolio</h2><p>Projects shown in your work grid.</p></div>
+          <button class="btn btn-primary" id="add-portfolio">+ Add project</button>
+        </div>
+        <div class="item-form" id="form-portfolio">
+          <input type="hidden" id="p-id">
+          <div class="field-row">
+            <div class="field"><label>Title</label><input id="p-title"></div>
+            <div class="field"><label>Category</label><input id="p-category" placeholder="BRANDING, WEB DESIGN..."></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Date</label><input id="p-date" placeholder="MM.DD.YYYY"></div>
+            <div class="field"><label>External Link (optional)</label><input id="p-link" placeholder="https://..."></div>
+          </div>
+          <div class="field"><label>Description</label><textarea id="p-description"></textarea></div>
+          <div class="field">
+            <label>Cover Image</label>
+            <div class="image-upload">
+              <div class="image-preview" id="p-image-preview"></div>
+              <div class="upload-controls">
+                <input type="file" id="p-image-file" accept="image/*">
+                <span class="hint">JPG/PNG, auto-resized on upload.</span>
+              </div>
+            </div>
+            <input type="hidden" id="p-image">
+          </div>
+          <div class="export-row" style="margin-top:10px;">
+            <button class="btn btn-primary btn-sm" id="save-portfolio-item">Save project</button>
+            <button class="btn btn-outline btn-sm" id="cancel-portfolio-item">Cancel</button>
+          </div>
+        </div>
+        <div class="item-list" id="portfolio-list"></div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="tab-panel" id="tab-team" style="display:none;">
+        <div class="main-header">
+          <div><h2>Team</h2><p>People shown in your team section.</p></div>
+          <button class="btn btn-primary" id="add-team">+ Add team member</button>
+        </div>
+        <div class="item-form" id="form-team">
+          <input type="hidden" id="tm-id">
+          <div class="field-row">
+            <div class="field"><label>Name</label><input id="tm-name"></div>
+            <div class="field"><label>Role</label><input id="tm-role"></div>
+          </div>
+          <div class="field">
+            <label>Photo</label>
+            <div class="image-upload">
+              <div class="image-preview" id="tm-image-preview"></div>
+              <div class="upload-controls">
+                <input type="file" id="tm-image-file" accept="image/*">
+                <span class="hint">Square-ish portrait photos work best.</span>
+              </div>
+            </div>
+            <input type="hidden" id="tm-image">
+          </div>
+          <div class="export-row" style="margin-top:10px;">
+            <button class="btn btn-primary btn-sm" id="save-team-item">Save member</button>
+            <button class="btn btn-outline btn-sm" id="cancel-team-item">Cancel</button>
+          </div>
+        </div>
+        <div class="item-list" id="team-list"></div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="tab-panel" id="tab-clients" style="display:none;">
+        <div class="main-header">
+          <div><h2>Client Logos</h2><p>Brand logos shown in your "brands we've worked with" strip.</p></div>
+          <button class="btn btn-primary" id="add-client">+ Add client</button>
+        </div>
+        <div class="item-form" id="form-clients">
+          <input type="hidden" id="c-id">
+          <div class="field-row">
+            <div class="field"><label>Client Name</label><input id="c-name"></div>
+            <div class="field"><label>Website Link (optional)</label><input id="c-link" placeholder="https://..."></div>
+          </div>
+          <div class="field">
+            <label>Logo</label>
+            <div class="image-upload">
+              <div class="image-preview" id="c-image-preview"></div>
+              <div class="upload-controls">
+                <input type="file" id="c-image-file" accept="image/*">
+                <span class="hint">PNG with transparent background recommended. Leave empty to show name as text.</span>
+              </div>
+            </div>
+            <input type="hidden" id="c-image">
+          </div>
+          <div class="export-row" style="margin-top:10px;">
+            <button class="btn btn-primary btn-sm" id="save-client-item">Save client</button>
+            <button class="btn btn-outline btn-sm" id="cancel-client-item">Cancel</button>
+          </div>
+        </div>
+        <div class="item-list" id="clients-list"></div>
+      </section>
+
+      <!-- TESTIMONIALS / QUOTES -->
+      <section class="tab-panel" id="tab-testimonials" style="display:none;">
+        <div class="main-header"><div><h2>Quotes &amp; Testimonials</h2><p>The two big pull-quotes and the testimonial cards on the Work page.</p></div></div>
+        <div class="panel">
+          <h3>Pull-Quote 1 (after hero)</h3>
+          <div class="field"><label>Quote</label><textarea id="q1-text"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Author</label><input id="q1-author"></div>
+            <div class="field"><label>Role</label><input id="q1-role"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Pull-Quote 2 (before team)</h3>
+          <div class="field"><label>Quote</label><textarea id="q2-text"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Author</label><input id="q2-author"></div>
+            <div class="field"><label>Role</label><input id="q2-role"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="save-quotes">Save quotes</button>
+
+        <div class="main-header" style="margin-top:36px;">
+          <div><h3 style="font-size:20px;">Testimonial Cards</h3></div>
+          <button class="btn btn-primary" id="add-testimonial">+ Add testimonial</button>
+        </div>
+        <div class="item-form" id="form-testimonials">
+          <input type="hidden" id="t-id">
+          <div class="field"><label>Quote</label><textarea id="t-quote"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Author</label><input id="t-author"></div>
+            <div class="field"><label>Role</label><input id="t-role"></div>
+          </div>
+          <div class="export-row" style="margin-top:10px;">
+            <button class="btn btn-primary btn-sm" id="save-testimonial-item">Save testimonial</button>
+            <button class="btn btn-outline btn-sm" id="cancel-testimonial-item">Cancel</button>
+          </div>
+        </div>
+        <div class="item-list" id="testimonials-list"></div>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <section class="tab-panel" id="tab-contact" style="display:none;">
+        <div class="main-header"><div><h2>Contact Page</h2><p>Heading and intro text shown on the Contact page.</p></div></div>
+        <div class="panel">
+          <div class="field"><label>Heading</label><input id="ct-heading"></div>
+          <div class="field"><label>Text</label><textarea id="ct-text"></textarea></div>
+        </div>
+        <button class="btn btn-primary" id="save-contact">Save changes</button>
+      </section>
+
+      <!-- PUBLISH -->
+      <section class="tab-panel" id="tab-publish" style="display:none;">
+        <div class="main-header"><div><h2>Publish</h2><p>Every change on the other tabs saves straight to your live database — there's no separate publish step. This tab is just for backups.</p></div></div>
+        <div class="panel">
+          <h3>Download a backup</h3>
+          <p style="font-size:14px; margin-bottom:14px;">Saves everything — text, portfolio items, team, client logos, testimonials — as one JSON file you can keep somewhere safe.</p>
+          <div class="export-row">
+            <button class="btn btn-primary" id="export-json">⬇ Download backup</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Restore from a backup</h3>
+          <p style="font-size:14px; margin-bottom:14px;">Loads a previously downloaded backup and makes it live immediately, replacing what's currently on the site.</p>
+          <input type="file" id="import-file" accept="application/json">
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
