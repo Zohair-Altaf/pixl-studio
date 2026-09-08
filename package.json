@@ -1,0 +1,9 @@
+{
+  "name": "pixl-studio-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pixl Studio agency website with a Netlify Functions + Blobs backed admin panel.",
+  "dependencies": {
+    "@netlify/blobs": "^8.0.0"
+  }
+}
