@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "PIXL STUDIO",
+    "tagline": "Creative & Digital Design Agency",
+    "primaryColor": "#c1443f",
+    "bgColor": "#f1e4cf",
+    "textColor": "#241609",
+    "email": "hello@pixlstudio.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Design Avenue, Suite 400, New York, NY",
+    "social": {
+      "instagram": "https://instagram.com",
+      "twitter": "https://twitter.com",
+      "linkedin": "https://linkedin.com",
+      "behance": "https://behance.net"
+    }
+  },
+  "nav": [
+    { "label": "About", "href": "index.html#about" },
+    { "label": "Services", "href": "index.html#services" },
+    { "label": "Work", "href": "work.html" },
+    { "label": "Contact", "href": "contact.html" }
+  ],
+  "hero": {
+    "line1": "WE DESIGN",
+    "line2": "BOLD BRANDS",
+    "bannerText": "Let's build a brand that gets remembered — strategy, design and digital experiences for ambitious companies.",
+    "ctaText": "START A PROJECT",
+    "ctaLink": "contact.html",
+    "badgeText": "VIEW OUR WORK ✦ VIEW OUR WORK ✦ ",
+    "badgeLink": "work.html"
+  },
+  "quote1": {
+    "text": "WE ARE ON A MISSION TO GIVE EVERY BRAND A VOICE",
+    "author": "Zohair Altaf",
+    "role": "Founder, Pixl Studio"
+  },
+  "intro": {
+    "eyebrow": "WE UNDERSTAND MODERN BRANDS",
+    "heading": "ABOUT PIXL STUDIO",
+    "text": "Pixl Studio partners with founders and marketing teams who refuse to blend in. From identity systems to full digital experiences, we've helped brands across tech, fashion, hospitality and consumer goods launch with impact and grow with clarity."
+  },
+  "process": [
+    { "number": "01", "title": "DISCOVERY", "text": "We dig into your brand, audience and competitors before we design a single pixel." },
+    { "number": "02", "title": "DESIGN", "text": "Bold visual identity and UI systems crafted for standout impact." },
+    { "number": "03", "title": "DEVELOPMENT", "text": "Fast, responsive, pixel-perfect builds on modern web technology." },
+    { "number": "04", "title": "150+", "text": "Projects delivered for ambitious brands around the world." }
+  ],
+  "workHeading": "OUR WORK IS TOP-TIER",
+  "portfolio": [
+    { "id": "p1", "title": "AURA", "category": "BRANDING", "date": "10.12.2024", "image": "https://images.unsplash.com/photo-1600508774634-4e11d34730e2?w=1200&q=80", "link": "#", "description": "A full identity system for a modern skincare label, from logo to packaging." },
+    { "id": "p2", "title": "NOVA", "category": "WEB DESIGN", "date": "08.03.2023", "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1200&q=80", "link": "#", "description": "A responsive marketing site and design system for a fintech startup." },
+    { "id": "p3", "title": "ORBIT", "category": "PACKAGING", "date": "03.22.2024", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80", "link": "#", "description": "Shelf-ready packaging design for a specialty coffee roastery." },
+    { "id": "p4", "title": "FLUX", "category": "CAMPAIGN", "date": "01.15.2025", "image": "https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&q=80", "link": "#", "description": "An integrated launch campaign across social, print and digital." }
+  ],
+  "quote2": {
+    "text": "WE ARE PASSIONATE ABOUT PIXEL-PERFECT WORK",
+    "author": "Amara Chen",
+    "role": "CEO, Nova Collective"
+  },
+  "teamHeading": {
+    "line1": "WE HAVE THE",
+    "line2": "BEST TALENT",
+    "text": "Our team is passionate about crafting brands that break through the noise."
+  },
+  "team": [
+    { "name": "Zohair Altaf", "role": "Founder & Creative Director", "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" },
+    { "name": "Priya Nair", "role": "Head of Design", "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" },
+    { "name": "Marcus Webb", "role": "Lead Developer", "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" }
+  ],
+  "clientsHeading": "BRANDS WE'VE WORKED WITH",
+  "clients": [
+    { "name": "Northwind", "logo": "", "link": "#" },
+    { "name": "Solace", "logo": "", "link": "#" },
+    { "name": "Vantage", "logo": "", "link": "#" },
+    { "name": "Harbor & Co", "logo": "", "link": "#" },
+    { "name": "Lumen", "logo": "", "link": "#" },
+    { "name": "Cedarwood", "logo": "", "link": "#" }
+  ],
+  "testimonials": [
+    { "quote": "Pixl Studio completely transformed how our brand shows up in the world. Sales followed within a quarter.", "author": "Jordan Blake", "role": "Founder, Solace" },
+    { "quote": "They think like founders, not just designers. Every decision was tied to a real business outcome.", "author": "Elena Ruiz", "role": "CMO, Vantage" }
+  ],
+  "contact": {
+    "heading": "LET'S BUILD SOMETHING BOLD",
+    "text": "Tell us about your project and we'll get back to you within two business days."
+  }
+}
